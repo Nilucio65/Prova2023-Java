@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.fatec.prova2023java.entities.Empresa;
 import com.fatec.prova2023java.repository.EmpresaRepository;
 
+import jakarta.persistence.EntityNotFoundException;
+
 @Service
 public class EmpresaService {
     
@@ -21,6 +23,18 @@ public class EmpresaService {
     public List<Empresa> getEmpresa(){
         return empresaRepository.findAll();
     }
+
+    public Empresa getEmpresaById(int id){
+        return empresaRepository.findById(id).orElseThrow(
+            () -> new EntityNotFoundException("Empresa não encontrado")
+        );
+    }
+
+    public void deleteById(int id) {
+      
+        Empresa empresa = getEmpresaById(id);
+        empresaRepository.delete(empresa);
+        }
     
 }
 
