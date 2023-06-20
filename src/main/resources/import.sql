@@ -1,0 +1,1 @@
+INSERT INTO TBL_EMPRESA ( NAME, EMAIL, RESP, CNPJ ) VALUES ('amazon', 'amazon@gmail.com', 'Airton', '11.111.111/1111-11');
